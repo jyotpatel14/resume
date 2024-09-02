@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
         .resume-container {
             max-width: 100vw;
             padding: 20px;
@@ -16,11 +18,13 @@
             border: 1px solid #ddd;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .resume-pdf {
             width: 100%;
             height: 80vh;
             border: none;
         }
+
         .download-button {
             background-color: #4CAF50;
             color: #fff;
@@ -28,9 +32,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px;
         }
+
         .download-button:hover {
             background-color: #3e8e41;
+
         }
 
         /* Add media queries for responsiveness */
@@ -38,28 +45,46 @@
             .resume-container {
                 padding: 10px;
             }
+
             .resume-pdf {
                 height: 70vh;
             }
         }
+
         @media only screen and (max-width: 480px) {
             .resume-container {
                 padding: 5px;
             }
+
             .resume-pdf {
                 height: 50vh;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="resume-container">
         <h1>Resume - Jyot Kalpesh Patel</h1>
         <object data="resumeJyotPatel.pdf" type="application/pdf" width="100%" height="500px" class="resume-pdf">
-            <p>It appears you don't have a PDF plugin for this browser. You can <a href="resumeJyotPatel.pdf">download the PDF file</a> instead.</p>
+            <p>It appears you don't have a PDF plugin for this browser. You can <a href="resumeJyotPatel.pdf">download
+                    the PDF file</a> instead.</p>
         </object>
         <!-- Add a download button -->
-        <button class="download-button">Download Resume</button>
+        <button id="download-button" class="download-button">Download Resume</button>
     </div>
+
+
+    <script>
+        const downloadButton = document.getElementById('download-button');
+        downloadButton.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.href = 'resumeJyotPatel.pdf';
+            link.download = 'resumeJyotPatel.pdf';
+            link.click();
+        });
+    </script>
+    
 </body>
+
 </html>
